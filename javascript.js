@@ -11,39 +11,40 @@ function getComputerChoice() {
  }
 }
 
-function singleRound(playerSelection,computerSelection) {
-    playerSelection=playerSelection.toLowerCase();
+function singleRound(e) {
+    let playerSelection=this.innerText;
+    let computerSelection=getComputerChoice();
         if(playerSelection=="rock") {
         if(computerSelection=="rock") {
-            return "Its a draw!";
+             div.innerText="Its a draw!";
         }
         else if(computerSelection=="paper") {
-            return "You loose! paper beats rock";
+            div.innerText="You loose! paper beats rock";
         }
         else if(computerSelection=="scissors") {
-            return "You win! rock beats scissors";
+            div.innerText="You win! rock beats scissors";
         }
     }
     if(playerSelection=="paper") {
         if(computerSelection=="rock") {
-            return "You win! paper beats rock";
+            div.innerText="You win! paper beats rock";
         }
         else if(computerSelection=="paper") {
-            return "Its a draw!";
+            div.innerText="Its a draw!";
         }
         else if(computerSelection=="scissors") {
-            return "You loose! scissors beats paper";
+            div.innerText="You loose! scissors beats paper";
         }
     }
     if(playerSelection=="scissors") {
         if(computerSelection=="rock") {
-            return "You loose! rock beats scissors";
+            div.innerText="You loose! rock beats scissors";
         }
         else if(computerSelection=="paper") {
-            return "You win! scissors beats paper";
+            div.innerText="You win! scissors beats paper";
         }
         else if(computerSelection=="scissors") {
-            return "Its a draw!";
+            div.innerText="Its a draw!";
         }
     }
 }
@@ -77,5 +78,9 @@ else {
 }
 }
 
-game();
-
+//game();
+let buttons=document.querySelectorAll("button");
+let div=document.querySelector("div");
+buttons.forEach((button)=>{
+    button.addEventListener("click",singleRound);
+});
